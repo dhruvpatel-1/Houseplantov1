@@ -10,16 +10,32 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
-    <PackageReference Include="Xamarin.Essentials" Version="1.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.5.231" />
+    <PackageReference Include="Xamarin.Forms" Version="4.2.0.709249" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.3.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Data\" />
+    <Compile Update="Views\DetailViews\InfoScreen2.xaml.cs">
+      <DependentUpon>InfoScreen2.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Views\DetailViews\InfoScreen1.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\LoginPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Menu\Dashboard.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Menu\MasterDetail.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Views\Menu\MasterPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

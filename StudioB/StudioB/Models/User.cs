@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Text;
 using System.Linq;
 using System.Threading.Tasks;
+using SQLite;
 
 namespace StudioB.Models
 {
     public class User
     {
+        [PrimaryKey]
         public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }

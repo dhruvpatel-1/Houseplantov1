@@ -1,21 +1,27 @@
-﻿using System;
+﻿using StudioB.Views;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
-
 namespace StudioB
 {
-    // Learn more about making custom code visible in the Xamarin.Forms previewer
-    // by visiting https://aka.ms/xamarinforms-previewer
-    [DesignTimeVisible(false)]
     public partial class MainPage : ContentPage
     {
         public MainPage()
         {
+            NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent();
+
+        }
+        async void LoginButton_Clicked(object sender, EventArgs e)
+        {
+            await this.Navigation.PushAsync(new LoginPage());
+        }
+        async void SignUp_Clicked(object sender, EventArgs e)
+        {
+            //await Navigation.PushAsync(new RegistrationPage());
         }
     }
 }
