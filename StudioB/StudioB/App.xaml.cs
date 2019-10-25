@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using StudioB.Views.DetailViews;
 
 namespace StudioB
 {

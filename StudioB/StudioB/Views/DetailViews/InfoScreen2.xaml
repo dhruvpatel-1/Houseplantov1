@@ -1,8 +1,26 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local ="clr-namespace:StudioB.Views.DetailViews"
+             xmlns:forms ="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
              x:Class="StudioB.Views.DetailViews.InfoScreen2">
 
-    <Label  Text="Info Screen 2"/>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+        </Grid.RowDefinitions>
+        <forms:ChartView x:Name="chartView" Grid.Row="0"/>
+        <forms:ChartView x:Name="chartView1" Grid.Row="1"/>
+        <forms:ChartView x:Name="chartView2" Grid.Row="2"/>
+    </Grid>
+    
+    
+    
+   
+
 
 </ContentPage>

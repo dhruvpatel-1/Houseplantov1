@@ -8,6 +8,7 @@ using StudioB.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
+
 namespace StudioB.Views.DetailViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
