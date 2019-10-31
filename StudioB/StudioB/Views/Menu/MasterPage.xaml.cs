@@ -28,6 +28,8 @@ namespace StudioB.Views.Menu
             items = new List<MasterMenuItem>();
             items.Add(new MasterMenuItem("Plant1", "icon.png", Color.White, typeof(InfoScreen2)));
             items.Add(new MasterMenuItem("Plant2", "icon.png", Color.White, typeof(InfoScreen2)));
+            items.Add(new MasterMenuItem("Update Profile", "icon.png", Color.White, typeof(ProfilePage)));
+           
 
             ListView.ItemsSource = items;
         }
