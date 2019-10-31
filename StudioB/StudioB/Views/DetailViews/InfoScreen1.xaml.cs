@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using StudioB.Models;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SkiaSharp;
+using Microcharts;
+using Entry = Microcharts.Entry;
 
 
 namespace StudioB.Views.DetailViews
@@ -14,52 +10,106 @@ namespace StudioB.Views.DetailViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class InfoScreen1 : ContentPage
     {
-        public ObservableCollection<VeggieViewModel> veggies { get; set; }
         public InfoScreen1()
         {
-            veggies = new ObservableCollection<VeggieViewModel>();
-            ListView lstView = new ListView();
-            lstView.RowHeight = 60;
-            this.Title = "All Plants";
-            lstView.ItemTemplate = new DataTemplate(typeof(CustomVeggieCell));
-            veggies.Add(new VeggieViewModel { Name = "Amaryllis", Type = "Plant", Image = "tomato.png" });
-            veggies.Add(new VeggieViewModel { Name = "African Violet", Type = "Plant", Image = "lettuce.png" });
-            veggies.Add(new VeggieViewModel { Name = "Angel Wing Begonia", Type = "Plant", Image = "zucchini.png" });
-            lstView.ItemsSource = veggies;
-            Content = lstView;
-        }
-
-        public class CustomVeggieCell : Xamarin.Forms.ViewCell
-        {
-            public CustomVeggieCell()
+            InitializeComponent();
+            var entries = new[]
             {
-                //instantiate each of our views
-                var image = new Image();
-                var nameLabel = new Label();
-                var typeLabel = new Label();
-                var verticaLayout = new StackLayout();
-                var horizontalLayout = new StackLayout() { BackgroundColor = Color.Olive };
+                new Entry(30)
+                {
+                     Label = "21/10",
+                     ValueLabel = "30",
+                     Color = SKColor.Parse("#2c3e50")
+                },
+                new Entry(40)
+                {
+                     Label = "22/10",
+                     ValueLabel = "40",
+                     Color = SKColor.Parse("#77d065")
+                },
+                new Entry(50)
+                {
+                     Label = "23/10",
+                     ValueLabel = "50",
+                     Color = SKColor.Parse("#b455b6")
+                },
+                new Entry(20)
+                {
+                     Label = "24/10",
+                     ValueLabel = "20",
+                     Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
+                }
+            };
 
-                //set bindings
-                nameLabel.SetBinding(Label.TextProperty, new Binding("Name"));
-                typeLabel.SetBinding(Label.TextProperty, new Binding("Type"));
-                image.SetBinding(Image.SourceProperty, new Binding("Image"));
+            var entries2 = new[]
+            {
+                new Entry(30)
+                {
+                     Label = "21/10",
+                     ValueLabel = "30%",
+                     Color = SKColor.Parse("#2c3e50")
+                },
+                new Entry(44)
+                {
+                     Label = "22/10",
+                     ValueLabel = "44%",
+                     Color = SKColor.Parse("#77d065")
+                },
+                new Entry(56)
+                {
+                     Label = "23/10",
+                     ValueLabel = "5%",
+                     Color = SKColor.Parse("#b455b6")
+                },
+                new Entry(60)
+                {
+                     Label = "24/10",
+                     ValueLabel = "60%",
+                     Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
+                }
+            };
 
-                //Set properties for desired design
-                horizontalLayout.Orientation = StackOrientation.Horizontal;
-                horizontalLayout.HorizontalOptions = LayoutOptions.Fill;
-                image.HorizontalOptions = LayoutOptions.End;
-                nameLabel.FontSize = 24;
+            var entries3 = new[]
+            {
+                new Entry(86)
+                {
+                     Label = "21/10",
+                     ValueLabel = "86%",
+                     Color = SKColor.Parse("#2c3e50")
+                },
+                new Entry(90)
+                {
+                     Label = "22/10",
+                     ValueLabel = "90%",
+                     Color = SKColor.Parse("#77d065")
+                },
+                new Entry(60)
+                {
+                     Label = "23/10",
+                     ValueLabel = "60%",
+                     Color = SKColor.Parse("#b455b6")
+                },
+                new Entry(75)
+                {
+                     Label = "24/10",
+                     ValueLabel = "75%",
+                     Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
+                }
+            };
 
-                //add views to the view hierarchy
-                verticaLayout.Children.Add(nameLabel);
-                verticaLayout.Children.Add(typeLabel);
-                horizontalLayout.Children.Add(verticaLayout);
-                horizontalLayout.Children.Add(image);
 
-                // add to parent view
-                View = horizontalLayout;
-            }
+
+
+            var chart = new LineChart() { Entries = entries, LabelTextSize = 25, LineMode = LineMode.Straight, LineSize = 8, PointMode = PointMode.Square, PointSize = 18 };
+            this.chartView.Chart = chart;
+
+            var chart1 = new BarChart() { Entries = entries2, LabelTextSize = 25};
+            this.chartView1.Chart = chart1;
+
+            var chart2 = new RadialGaugeChart() { Entries = entries3, LabelTextSize = 25 };
+            this.chartView2.Chart = chart2;
+
+
         }
     }
 }

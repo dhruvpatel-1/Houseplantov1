@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local ="clr-namespace:StudioB.Views.DetailViews"
              xmlns:forms ="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
-             x:Class="StudioB.Views.DetailViews.InfoScreen2">
+             x:Class="StudioB.Views.DetailViews.InfoScreen2"
+             Title="Plant 2">
 
 
     <Grid>
@@ -13,8 +14,11 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
+        <Label x:Name="temperature" Text="Temperature" />
         <forms:ChartView x:Name="chartView" Grid.Row="0"/>
+        <Label x:Name="Soil" Text="Soil" />
         <forms:ChartView x:Name="chartView1" Grid.Row="1"/>
+        <Label x:Name="Humidity" Text="Humidity" />
         <forms:ChartView x:Name="chartView2" Grid.Row="2"/>
     </Grid>
     
