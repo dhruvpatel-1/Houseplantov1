@@ -13,23 +13,56 @@ using StudioB.Data;
 using System.IO;
 using Xamarin.Forms;
 using StudioB.Droid.Data;
+using SQLite;
+using StudioB.Models;
 
 [assembly: Dependency(typeof(SQLite_Android))]
 
 namespace StudioB.Droid.Data
 {
-    public class SQLite_Android : ISQLite
+    class SQLite_Android : ISQLite
     {
-        public SQLite_Android() { }
-        public SQLite.SQLiteConnection GetConnection()
+
+        SQLiteConnection con;
+        //public SQLite_Android() { }
+        public SQLiteConnection GetConnection()
         {
             var sqliteFileName = "TestDB.db3";
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentPath, sqliteFileName);
-            var conn = new SQLite.SQLiteConnection(path);
+            con = new SQLite.SQLiteConnection(path);
+            con.CreateTable<UserInfo>();
+            return con;
 
-            return conn;
+        }
 
+        public List<UserInfo> GetUserInfos()
+        {
+            string sql = "SELECT * FROM UserInfo";
+            List<UserInfo> userInfos = con.Query<UserInfo>(sql);
+            return userInfos;
+        }
+
+        public bool SaveUser(UserInfo userinfo)
+        {
+            bool res = false;
+            try
+            {
+                con.Insert(userinfo);
+                res = true;
+            }
+            catch (Exception ex)
+            {
+                res = false;
+
+            }
+            return res;
+            
+        }
+
+        public bool UpdateUser(UserInfo userInfo)
+        {
+            throw new NotImplementedException();
         }
     }
 }

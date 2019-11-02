@@ -21,13 +21,17 @@ namespace StudioB
         private static Timer timer;
         private static bool noInterShow;
 
+        public static string FilePath;
+
         public App()
         {
             InitializeComponent();
-
+            DependencyService.Get<ISQLite>().GetConnection();
             MainPage = new NavigationPage(new MainPage());
 
         }
+
+    
 
         protected override void OnStart()
         {

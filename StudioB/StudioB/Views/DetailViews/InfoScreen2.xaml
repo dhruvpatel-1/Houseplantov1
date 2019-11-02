@@ -14,11 +14,8 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <Label x:Name="temperature" Text="Temperature" />
         <forms:ChartView x:Name="chartView" Grid.Row="0"/>
-        <Label x:Name="Soil" Text="Soil" />
         <forms:ChartView x:Name="chartView1" Grid.Row="1"/>
-        <Label x:Name="Humidity" Text="Humidity" />
         <forms:ChartView x:Name="chartView2" Grid.Row="2"/>
     </Grid>
     

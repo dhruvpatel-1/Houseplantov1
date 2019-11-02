@@ -3,6 +3,9 @@ using StudioB.Models;
 using StudioB.Views.Menu;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using SQLite;
+using System.Linq;
+using StudioB.Data;
 
 namespace StudioB.Views.DetailViews
 {
@@ -31,40 +34,31 @@ namespace StudioB.Views.DetailViews
 
 
         }
-        async void UpdateProfile(object sender, EventArgs e)
+        void UpdateProfile(object sender, System.EventArgs e)
         {
-            User user = new User(Entry_Email.Text, Entry_Password.Text);
-
-            if (user.CheckInformation())
+            UserInfo userInfo = new UserInfo()
             {
-                DisplayAlert("Update", "Details Updated", "Ok");
-                //Token token = await App.RestService.Login(user);
-                var result = new Token();
-                if (result != null)
-                {
-                    // App.UserDatabase.SaveUser(user);
-                    //App.TokenDatabase.SaveToken(token);
+                firstname = Entry_FName.Text,
+                lastname = Entry_LName.Text,
+                emailad = Entry_Email.Text,
+                passw = Entry_Password.Text
+            };
 
-                    //  await DisplayAlert("Login", "Login Success", "Ok");
-
-                    if (Device.OS == TargetPlatform.Android)
-                    {
-                        Application.Current.MainPage = new NavigationPage(new MasterDetail());
-                    }
-                    else if (Device.OS == TargetPlatform.iOS)
-                    {
-                        await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
-                    }
-                    //else
-                    //{
-                    //    await Navigation.PushAsync(new MasterDetail()); // might not work for UWP
-                    //}
-                }
-            }
-            else
+            using(SQLiteConnection conn = new SQLiteConnection(App.FilePath))
             {
-                await DisplayAlert("Update", "Data Not Correct, empty fields.", "Ok");
+                int rowsAdded = conn.Update(userInfo);
             }
+        }
+
+        protected override void OnAppearing()
+        {
+            PopulateUserList();
+        }
+
+        public void PopulateUserList()
+        {
+            userinfoview.ItemsSource = null;
+            userinfoview.ItemsSource = DependencyService.Get<ISQLite>().GetUserInfos();
         }
     }
 }

@@ -6,6 +6,7 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using System.IO;
 
 namespace StudioB.Droid
 {
@@ -22,6 +23,13 @@ namespace StudioB.Droid
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             LoadApplication(new App());
+
+
+            //var sqliteFileName = "TestDB.db3";
+            //string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
+            //var path = Path.Combine(documentPath, sqliteFileName);
+
+            //LoadApplication(new App(path));
         }
         public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
         {

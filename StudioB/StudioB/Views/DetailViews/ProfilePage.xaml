@@ -22,7 +22,25 @@
             </StackLayout.Padding>
 
             <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True" />
-            
+
+            <ListView x:Name="userinfoview">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Spacing="2">
+                                <Label Text="{Binding firstname}" FontAttributes="Bold"/>
+                                <Label Text="{Binding lastname}" FontAttributes="None"/>
+                                <Label Text="{Binding emailad}" FontAttributes="None"/>
+                                <Label Text="{Binding passw}" FontAttributes="None"/>
+                 
+                            </StackLayout>
+                        </ViewCell>
+                        
+                        
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
             <Label x:Name="Lbl_FName" Text="First Name" />
             <Entry x:Name="Entry_FName" Placeholder="First Name" />
             <Label x:Name="Lbl_LName" Text="Last Name" />

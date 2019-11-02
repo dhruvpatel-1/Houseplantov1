@@ -26,7 +26,7 @@ namespace StudioB.Views.Menu
         private void SetItems()
         {
             items = new List<MasterMenuItem>();
-            items.Add(new MasterMenuItem("Plant1", "icon.png", Color.White, typeof(InfoScreen2)));
+            items.Add(new MasterMenuItem("Plant1", "icon.png", Color.White, typeof(InfoScreen1)));
             items.Add(new MasterMenuItem("Plant2", "icon.png", Color.White, typeof(InfoScreen2)));
             items.Add(new MasterMenuItem("Update Profile", "icon.png", Color.White, typeof(ProfilePage)));
            

@@ -34,7 +34,9 @@
             <Entry x:Name="Entry_Email" Placeholder="Email" />
             <Label x:Name="Lbl_Password" Text="Password" />
             <Entry x:Name="Entry_Password" Placeholder="Password" />
-            <Button x:Name="Btn_Register" Text="Register" Clicked="SignInProcedure" />
+
+
+            <Button x:Name="Btn_Register" Text="Register" Clicked="SaveUser" />
 
         </StackLayout>
     </StackLayout>
