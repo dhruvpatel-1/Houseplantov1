@@ -18,6 +18,17 @@ namespace StudioB.Views.DetailViews
             Init();
 
         }
+
+        protected override void OnAppearing()
+        {
+            PopulateUserList();
+        }
+
+        public void PopulateUserList()
+        {
+            userinfoview.ItemsSource = null;
+            userinfoview.ItemsSource = DependencyService.Get<ISQLite>().GetUserInfos();
+        }
         void Init()
         {
             Lbl_Password.TextColor = Constants.MainTextColor;
@@ -50,15 +61,6 @@ namespace StudioB.Views.DetailViews
             }
         }
 
-        protected override void OnAppearing()
-        {
-            PopulateUserList();
-        }
-
-        public void PopulateUserList()
-        {
-            userinfoview.ItemsSource = null;
-            userinfoview.ItemsSource = DependencyService.Get<ISQLite>().GetUserInfos();
-        }
+        
     }
 }

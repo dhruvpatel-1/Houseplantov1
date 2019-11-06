@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="StudioB.Views.Menu.AddPlantPage"
+             Title="Add Plant">
+    
+    <ContentPage.Content>
+        <StackLayout Padding="5">
+            <Label Text="Name" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Plant Name" FontSize="Small" HorizontalOptions="FillAndExpand" x:Name="plantname"/>
+            <Label Text="Type" FontAttributes="Bold" TextColor="Black"/>
+            <Entry Placeholder="Plant Type" FontSize="Small" HorizontalOptions="FillAndExpand" x:Name="planttype"/>
+            
+            <Button Text="Save" Clicked="SavePlant" HorizontalOptions="FillAndExpand" 
+                    BackgroundColor="Maroon" TextColor="White" x:Name="saveBtn"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

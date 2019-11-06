@@ -56,7 +56,8 @@ namespace StudioB.Views
 
                 if(res)
                 {
-                    Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                    //Navigation.PopAsync(new MasterDetail (null));
+                    Application.Current.MainPage = new NavigationPage(new MyPlants());
                 }
                 else
                 {

@@ -11,11 +11,17 @@ namespace StudioB.Data
         SQLiteConnection GetConnection();
 
         bool SaveUser(UserInfo userinfo);
+        bool SavePlant(Plant plant);
 
         List<UserInfo> GetUserInfos();
 
+        List<Plant> GetPlantInfos();
+
         bool UpdateUser(UserInfo userInfo);
 
+        bool UpdatePlant(Plant plant);
+
+        void DeletePlant(int Id);
 
     }
 }

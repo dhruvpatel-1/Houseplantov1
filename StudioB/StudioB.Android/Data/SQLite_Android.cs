@@ -31,9 +31,57 @@ namespace StudioB.Droid.Data
             string documentPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Personal);
             var path = Path.Combine(documentPath, sqliteFileName);
             con = new SQLite.SQLiteConnection(path);
+
+            con.DeleteAll<Plant>();
             con.CreateTable<UserInfo>();
+            con.CreateTable<Plant>();
             return con;
 
+        }
+        public bool SavePlant(Plant employee)
+        {
+            bool res = false;
+            try
+            {
+                con.Insert(employee);
+                res = true;
+            }
+            catch (Exception ex)
+            {
+                res = false;
+            }
+            return res;
+        }
+
+        public List<Plant> GetPlantInfos()
+        {
+            string sql = "SELECT * FROM Plant";
+            List<Plant> employees = con.Query<Plant>(sql);
+            return employees;
+        }
+
+
+        public bool UpdatePlant(Plant plant)
+        {
+            bool res = false;
+            try
+            {
+                string sql = $"UPDATE Plant SET PlantName='{plant.PlantName}',PlantType='{plant.PlantType}' " +
+                                $" WHERE Id={plant.Id}";
+                con.Execute(sql);
+                res = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
+        }
+
+        public void DeletePlant(int Id)
+        {
+            string sql = $"DELETE FROM Plant WHERE Id={Id}";
+            con.Execute(sql);
         }
 
         public List<UserInfo> GetUserInfos()
