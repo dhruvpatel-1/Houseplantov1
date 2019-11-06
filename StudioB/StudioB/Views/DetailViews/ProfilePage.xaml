@@ -6,51 +6,26 @@
              mc:Ignorable="d"
              x:Class="StudioB.Views.DetailViews.ProfilePage"
              Title="Update Profile">
-    <StackLayout x:Name="MasterLayout">
-
-        <StackLayout x:Name="LogoStack" VerticalOptions="FillAndExpand">
-            <Label x:Name="lbl_NoInternet" HorizontalOptions="Center" TextColor="White" BackgroundColor="Red" />
-        </StackLayout>
-
-        <StackLayout x:Name="RegisterEntries" VerticalOptions="StartAndExpand">
-            <StackLayout.Padding>
-                <OnIdiom x:TypeArguments = "Thickness">
-                    <OnIdiom.Phone>40,0,40,0</OnIdiom.Phone>
-                    <OnIdiom.Tablet>140,150,140,0</OnIdiom.Tablet>
-                </OnIdiom>
-
-            </StackLayout.Padding>
-
-            <ActivityIndicator x:Name="ActivitySpinner" Color="Red" IsRunning="True" />
-
-            <ListView x:Name="userinfoview">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Spacing="2">
-                                <Label Text="{Binding firstname}" FontAttributes="Bold"/>
-                                <Label Text="{Binding lastname}" FontAttributes="None"/>
-                                <Label Text="{Binding emailad}" FontAttributes="None"/>
-                                <Label Text="{Binding passw}" FontAttributes="None"/>
-                 
-                            </StackLayout>
-                        </ViewCell>
+    <StackLayout Padding="5">
+        
+        <ListView x:Name="userinfoview" HasUnevenRows="True" ItemTapped="EditPlant">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
                         
-                        
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+                        <StackLayout Spacing="2">
+                            <Label Text="{Binding firstname,StringFormat='First Name:{0:F0}'}" FontSize="Small" FontAttributes="Bold"/>
+                            <Label Text="{Binding lastname,StringFormat='Last Name:{0:F0}'}" FontSize="Small" FontAttributes="None"/>
+                            <Label Text="{Binding emailad,StringFormat='Email:{0:F0}'}" FontSize="Small" FontAttributes="None"/>
+                            <!--<Label Text="{Binding LastName,StringFormat='Last Name:{0:F0}'}" FontSize="Small" FontAttributes="None"/>-->
 
-            <Label x:Name="Lbl_FName" Text="First Name" />
-            <Entry x:Name="Entry_FName" Placeholder="First Name" />
-            <Label x:Name="Lbl_LName" Text="Last Name" />
-            <Entry x:Name="Entry_LName" Placeholder="Last Name" />
-            <Label x:Name="Lbl_Email" Text="Email" />
-            <Entry x:Name="Entry_Email" Placeholder="Email" />
-            <Label x:Name="Lbl_Password" Text="Password" />
-            <Entry x:Name="Entry_Password" Placeholder="Password" />
-            <Button x:Name="Btn_Update" Text="Update" Clicked="UpdateProfile" />
+                            <!--<Label Text="{Binding PhoneNumber,StringFormat='Phone No :{0:F0}'}" FontSize="Small" FontAttributes="None"/>-->
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
 
-        </StackLayout>
+        
     </StackLayout>
 </ContentPage>

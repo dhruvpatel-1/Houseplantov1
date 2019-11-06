@@ -35,6 +35,13 @@ namespace StudioB.Views.Menu
             Navigation.PushAsync(new AddPlantPage(null));
         }
 
+
+        private void ViewData(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new MasterDetail());
+        }
+        
+
         private void EditPlant(object sender, ItemTappedEventArgs e)
         {
             Plant details = e.Item as Plant;

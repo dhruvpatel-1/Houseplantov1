@@ -33,11 +33,13 @@ namespace StudioB.Droid.Data
             con = new SQLite.SQLiteConnection(path);
 
             con.DeleteAll<Plant>();
+            con.DeleteAll<UserInfo>();
             con.CreateTable<UserInfo>();
             con.CreateTable<Plant>();
             return con;
 
         }
+
         public bool SavePlant(Plant employee)
         {
             bool res = false;
@@ -110,7 +112,19 @@ namespace StudioB.Droid.Data
 
         public bool UpdateUser(UserInfo userInfo)
         {
-            throw new NotImplementedException();
+            bool res = false;
+            try
+            {
+                string sql = $"UPDATE UserInfo SET firstname='{userInfo.firstname}',lastname='{userInfo.lastname}',emailad='{userInfo.emailad}'," +
+                                $"passw='{userInfo.passw}' WHERE Id={userInfo.id}";
+                con.Execute(sql);
+                res = true;
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return res;
         }
     }
 }

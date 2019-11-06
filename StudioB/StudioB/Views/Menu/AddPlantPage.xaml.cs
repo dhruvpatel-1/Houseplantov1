@@ -46,6 +46,7 @@ namespace StudioB.Views.Menu
                 if (res)
                 {
                     Navigation.PopAsync();
+                    DisplayAlert("Notification", "Plant added successful", "Ok");
                 }
                 else
                 {
@@ -63,6 +64,7 @@ namespace StudioB.Views.Menu
                 if (res)
                 {
                     Navigation.PopAsync();
+                    DisplayAlert("Notification", "Plant updated successful", "Ok");
                 }
                 else
                 {

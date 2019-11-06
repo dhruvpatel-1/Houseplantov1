@@ -35,6 +35,7 @@ namespace StudioB.Views
             Entry_FName.Completed += (s, e) => Entry_LName.Focus();
             Entry_LName.Completed += (s, e) => Entry_Email.Focus();
             Entry_Email.Completed += (s, e) => Entry_Password.Focus();
+            //Entry_Password.IsEnabled = false;
             Entry_Password.Completed += (s, e) => RegisterProcedure(s, e);
 
 
@@ -50,12 +51,14 @@ namespace StudioB.Views
                 userinfo.lastname = Entry_LName.Text;
                 userinfo.emailad = Entry_Email.Text;
                 userinfo.passw = Entry_Password.Text;
+                //Entry_Password.IsEnabled = false;  
 
 
                 bool res = DependencyService.Get<ISQLite>().SaveUser(userinfo);
 
                 if(res)
                 {
+                    DisplayAlert("Register", "Registration successful", "Ok");
                     //Navigation.PopAsync(new MasterDetail (null));
                     Application.Current.MainPage = new NavigationPage(new MyPlants());
                 }

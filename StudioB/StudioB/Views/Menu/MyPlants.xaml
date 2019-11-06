@@ -28,5 +28,8 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+
+        <Button Text="Vew Data" HorizontalOptions="FillAndExpand" 
+                BackgroundColor="Orange" TextColor="Black" Clicked="ViewData"/>
     </StackLayout>
 </ContentPage>

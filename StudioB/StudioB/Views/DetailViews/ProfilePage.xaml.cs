@@ -31,34 +31,40 @@ namespace StudioB.Views.DetailViews
         }
         void Init()
         {
-            Lbl_Password.TextColor = Constants.MainTextColor;
-            Lbl_Email.TextColor = Constants.MainTextColor;
-            Lbl_FName.TextColor = Constants.MainTextColor;
-            Lbl_LName.TextColor = Constants.MainTextColor;
-
-
-            ActivitySpinner.IsVisible = false;
+            //Lbl_Password.TextColor = Constants.MainTextColor;
+            //Lbl_Email.TextColor = Constants.MainTextColor;
+            //Lbl_FName.TextColor = Constants.MainTextColor;
+            //Lbl_LName.TextColor = Constants.MainTextColor;
 
 
 
-            App.StartCheckIfInternet(lbl_NoInternet, this);
+
 
 
         }
+
+        private void EditPlant(object sender, ItemTappedEventArgs e)
+        {
+            UserInfo details = e.Item as UserInfo;
+            if (details != null)
+            {
+                Navigation.PushAsync(new UpdateProfile(details));
+            }
+        }
         void UpdateProfile(object sender, System.EventArgs e)
         {
-            UserInfo userInfo = new UserInfo()
-            {
-                firstname = Entry_FName.Text,
-                lastname = Entry_LName.Text,
-                emailad = Entry_Email.Text,
-                passw = Entry_Password.Text
-            };
+            //UserInfo userInfo = new UserInfo()
+            //{
+            //    firstname = Entry_FName.Text,
+            //    lastname = Entry_LName.Text,
+            //    emailad = Entry_Email.Text,
+            //    passw = Entry_Password.Text
+            //};
 
-            using(SQLiteConnection conn = new SQLiteConnection(App.FilePath))
-            {
-                int rowsAdded = conn.Update(userInfo);
-            }
+            //using(SQLiteConnection conn = new SQLiteConnection(App.FilePath))
+            //{
+            //    int rowsAdded = conn.Update(userInfo);
+            //}
         }
 
         

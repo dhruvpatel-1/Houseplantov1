@@ -33,5 +33,11 @@ namespace StudioB.Views.Menu
 
             ListView.ItemsSource = items;
         }
+        private async void MenuItem_OnClicked(object sender, EventArgs e)
+        {
+            await DisplayAlert("Quit", "Are you sure you want to logout?", "OK");
+            App.Current.MainPage = new MainPage();
+
+        }
     }
 }
