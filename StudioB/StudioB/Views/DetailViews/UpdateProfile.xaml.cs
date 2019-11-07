@@ -32,7 +32,7 @@ namespace StudioB.Views.DetailViews
             lastname.Text = details.lastname;
             Email.Text = details.emailad;
             Password.Text = details.passw;
-            Password.IsEnabled = false;
+            //Password.IsEnabled = false;
             saveBtn.Text = "Update";
             this.Title = "Edit Profile";
         }

@@ -25,7 +25,7 @@ namespace StudioB.Views
 
             LoginIcon.HeightRequest = Constants.LoginIconHeight;
 
-            App.StartCheckIfInternet(lbl_NoInternet, this);
+            //App.StartCheckIfInternet(lbl_NoInternet, this);
 
             Entry_Username.Completed += (s, e) => Entry_Password.Focus();
             Entry_Password.Completed += (s, e) => SignInProcedure(s, e);
@@ -49,11 +49,11 @@ namespace StudioB.Views
 
                     if (Device.OS == TargetPlatform.Android)
                     {
-                        Application.Current.MainPage = new NavigationPage(new MasterDetail());
+                        Application.Current.MainPage = new NavigationPage(new MyPlants());
                     }
                     else if (Device.OS == TargetPlatform.iOS)
                     {
-                        await Navigation.PushModalAsync(new NavigationPage(new MasterDetail()));
+                        await Navigation.PushModalAsync(new NavigationPage(new MyPlants()));
                     }
                     //else
                     //{

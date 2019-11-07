@@ -29,7 +29,7 @@ namespace StudioB.Views
             ActivitySpinner.IsVisible = false;
 
 
-            App.StartCheckIfInternet(lbl_NoInternet, this);
+            //App.StartCheckIfInternet(lbl_NoInternet, this);
 
             Entry_Username.Completed += (s, e) => Entry_FName.Focus();
             Entry_FName.Completed += (s, e) => Entry_LName.Focus();

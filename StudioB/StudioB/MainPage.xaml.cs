@@ -15,13 +15,21 @@ namespace StudioB
             InitializeComponent();
 
         }
-        async void LoginButton_Clicked(object sender, EventArgs e)
+        private void LoginButton_Clicked(object sender, EventArgs e)
         {
-            await this.Navigation.PushAsync(new LoginPage());
+            NavigationPage navigationRootPage = new NavigationPage(new LoginPage());
+            navigationRootPage.BarTextColor = Color.White;
+            App.Current.MainPage = navigationRootPage;
+
+            //await this.Navigation.PushAsync(new LoginPage());
         }
-        async void SignUp_Clicked(object sender, EventArgs e)
+        private void SignUp_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new RegisterPage());
+
+            NavigationPage navigationRootPage = new NavigationPage(new RegisterPage());
+            navigationRootPage.BarTextColor = Color.White;
+            App.Current.MainPage = navigationRootPage;
+            // await Navigation.PushAsync(new RegisterPage());
         }
     }
 }

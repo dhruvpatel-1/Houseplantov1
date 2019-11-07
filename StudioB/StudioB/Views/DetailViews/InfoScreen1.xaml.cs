@@ -15,84 +15,84 @@ namespace StudioB.Views.DetailViews
             InitializeComponent();
             var entries = new[]
             {
-                new Entry(30)
+                new Entry(25)
                 {
-                     Label = "21/10",
-                     ValueLabel = "30",
+                     Label = "2019-11-07 00:53:51",
+                     ValueLabel = "25°C",
                      Color = SKColor.Parse("#2c3e50")
                 },
-                new Entry(40)
+                new Entry(25)
                 {
-                     Label = "22/10",
-                     ValueLabel = "40",
+                     Label = "2019-11-07 00:57:51",
+                     ValueLabel = "25°C",
                      Color = SKColor.Parse("#77d065")
                 },
-                new Entry(50)
+                new Entry(23)
                 {
-                     Label = "23/10",
-                     ValueLabel = "50",
+                     Label = "2019-11-07 01:01:51",
+                     ValueLabel = "23°C",
                      Color = SKColor.Parse("#b455b6")
                 },
-                new Entry(20)
+                new Entry(24)
                 {
-                     Label = "24/10",
-                     ValueLabel = "20",
+                     Label = "2019-11-07 01:05:51",
+                     ValueLabel = "24°C",
                      Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
                 }
             };
 
             var entries2 = new[]
             {
-                new Entry(30)
+                new Entry(25)
                 {
-                     Label = "21/10",
-                     ValueLabel = "30%",
+                     Label = "2019-11-07 00:53:51",
+                     ValueLabel = "25%",
                      Color = SKColor.Parse("#2c3e50")
                 },
-                new Entry(44)
+                new Entry(27)
                 {
-                     Label = "22/10",
-                     ValueLabel = "44%",
+                     Label = "2019-11-07 00:57:51",
+                     ValueLabel = "27%",
                      Color = SKColor.Parse("#77d065")
                 },
-                new Entry(56)
+                new Entry(30)
                 {
-                     Label = "23/10",
-                     ValueLabel = "5%",
+                     Label = "2019-11-07 01:01:51",
+                     ValueLabel = "30%",
                      Color = SKColor.Parse("#b455b6")
                 },
-                new Entry(60)
+                new Entry(28)
                 {
-                     Label = "24/10",
-                     ValueLabel = "60%",
+                     Label = "2019-11-07 01:05:51",
+                     ValueLabel = "28%",
                      Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
                 }
             };
 
             var entries3 = new[]
             {
-                new Entry(86)
+                new Entry(950)
                 {
-                     Label = "21/10",
-                     ValueLabel = "86%",
+                     Label = "2019-11-07 00:53:51",
+                     ValueLabel = "950Lux",
                      Color = SKColor.Parse("#2c3e50")
                 },
-                new Entry(90)
+                new Entry(800)
                 {
-                     Label = "22/10",
-                     ValueLabel = "90%",
+                     Label = "2019-11-07 00:57:51",
+                     ValueLabel = "800Lux",
                      Color = SKColor.Parse("#77d065")
                 },
-                new Entry(60)
+                new Entry(1000)
                 {
-                     Label = "23/10",
-                     ValueLabel = "60%",
+                     Label = "2019-11-07 01:01:51",
+                     ValueLabel = "1000Lux",
                      Color = SKColor.Parse("#b455b6")
                 },
-                new Entry(75)
+                new Entry(900)
                 {
-                     Label = "24/10",
-                     ValueLabel = "75%",
+                     Label = "2019-11-07 01:05:51",
+                     ValueLabel = "900Lux",
                      Color = SKColor.Parse("#3498db"), TextColor = SKColor.Parse("#b455b6")
                 }
             };

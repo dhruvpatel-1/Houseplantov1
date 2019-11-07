@@ -35,7 +35,8 @@ namespace StudioB.Views.Menu
         }
         private async void MenuItem_OnClicked(object sender, EventArgs e)
         {
-            await DisplayAlert("Quit", "Are you sure you want to logout?", "OK");
+            await DisplayAlert("Logout", "Are you sure you want to logout?", "OK");
+            //Settings.ClearAllData();
             App.Current.MainPage = new MainPage();
 
         }
